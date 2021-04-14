@@ -15,7 +15,7 @@ Funcionalidade: Requisicoes Post para Login
       | fulano@qa.com | teste |
 
   Esquema do Cenario: Validar email incorreto
-    E envio a requisicao com "<email>"e "<senha>"
+    E envio a requisicao com "<email>" e "<senha>"
     Entao valido que o email esta incorreto
 
     Exemplos:
