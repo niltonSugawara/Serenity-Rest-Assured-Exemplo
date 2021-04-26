@@ -1,7 +1,6 @@
 package stepDefinition.login;
 
 import core.ManipulaArquivo;
-import enums.ErroUsuario;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.restassured.response.Response;
@@ -11,7 +10,7 @@ import static net.serenitybdd.rest.RestRequests.*;
 
 public class LoginEndPointSteps {
 
-    private String urlAPIUsuarios;
+    private String urlAPILogin;
     private static final String LOGIN_ENDPOINT = "/login";
     final static String LOGIN_SUCESSO = "Login realizado com sucesso";
     final static String ERRO_EMAIL_SENHA = "Email e/ou senha inválidos";
@@ -22,7 +21,7 @@ public class LoginEndPointSteps {
 
     @Dado("que possuo a uri da API")
     public void quePossuoAUriDaAPI() {
-       urlAPIUsuarios =  manipulaArquivo.retornaValorParametros("urlAPI") + LOGIN_ENDPOINT;
+       urlAPILogin =  manipulaArquivo.retornaValorParametros("urlAPI") + LOGIN_ENDPOINT;
     }
 
     @Dado("envio a requisicao com {string} e {string}")
@@ -33,7 +32,7 @@ public class LoginEndPointSteps {
                 .contentType("application/json")
                 .body(jsonParametros.toString())
                 .when()
-                .post(urlAPIUsuarios);
+                .post(urlAPILogin);
     }
 
 
